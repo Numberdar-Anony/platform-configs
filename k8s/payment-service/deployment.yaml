@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-service
+  namespace: devops-lab
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: payment-service
+  template:
+    metadata:
+      labels:
+        app: payment-service
+    spec:
+      containers:
+      - name: payment-service
+        image: localhost:5000/payment-service:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5003
+        env:
+        - name: PAYMENT_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: shared-secrets
+              key: PAYMENT_API_KEY
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 5003
+          initialDelaySeconds: 5
+          periodSeconds: 10
