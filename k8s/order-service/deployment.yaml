@@ -18,10 +18,10 @@ spec:
         image: localhost:5000/order-service:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 8080
+        - containerPort: 5002
         readinessProbe:
           httpGet:
             path: /health
-            port: 8080
+            port: 5002
           initialDelaySeconds: 5
           periodSeconds: 10
