@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: auth-service
-        image: localhost:5000/auth-service:v99
+        image: localhost:5000/auth-service:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 5001
