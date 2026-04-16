@@ -24,7 +24,7 @@ spec:
           valueFrom:
             secretKeyRef:
               name: shared-secrets
-              key: WRONG_KEY
+              key: PAYMENT_API_KEY
         readinessProbe:
           httpGet:
             path: /health
