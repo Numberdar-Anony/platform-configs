@@ -17,7 +17,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: 'https://github.com/YOUR_ORG/platform-configs.git'
+        repoURL: 'https://github.com/Numberdar-Anony/platform-configs.git'
         targetRevision: HEAD
         path: 'k8s/{{service}}'
       destination:
